@@ -12,12 +12,7 @@ logger.setLevel(logging.INFO)
 pd.set_option('display.max_columns', None)
 # pd.set_option('display.max_rows', None)
 
-df = pd.read_csv("datasets/mpst_full_data.csv")
-print(df.head())
-# data = ray.data.read_csv("datasets/mpst_full_data.csv")
-# print(data.limit(5))
-
-columns = df.columns
-logger.info(f"Columns in the dataset: {columns}")
-shape = df.shape
-logger.info(f"Shape of the dataset: {shape}")
+# This script will act as the final script that will be used to serve the model as an API using Ray Serve.
+# Notes and Annotations:
+# - Use Pandas for data processing, feature engineering and treat the data processing functions as tasks in Ray to leverage parallelism.Don't use Ray Data API as it has limited functionalities.
+# 
